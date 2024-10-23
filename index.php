@@ -15,7 +15,7 @@
         <label Numero 02></label>
         <input type="text" name="numero2" id="numero2"/>
 
-        <button> Calcular com ajax </button>
+        <button onclick="calcular();"> Calcular com ajax </button>
 
     
         <p id="resultado"></p>
@@ -29,7 +29,7 @@ function calcular(){
     fetch('/calculo.php',{
         method: 'POST',
         header: {'Content-type': 'application/json'},
-        body: JSON.stringfy({
+        body: JSON.stringify({
             numero1: parseFloat(numero1),
             numero2: parseFloat(numero2)
         })
@@ -39,7 +39,7 @@ function calcular(){
         document.getElementById("resultado").innerHTML = "Soma: "+ dados.soma;
 })
 .catch(erro =>{
-    document.getElementById("resultado").innerHTML = "Erro ao processars"
+    document.getElementById("resultado").innerHTML = "Erro ao processar"
 })
 }
         </script>
